@@ -16,7 +16,12 @@ const reducer = (state = initialState, action) => {
 				items: state.items.concat(state.inputText),
 				inputText:''//to wipe the input from input field
 			} )
-
+		case 'DELETE_ITEM':
+			const newarray= state.items.slice();
+			newarray.splice(action.index, 1);
+			return Object.assign({}, state, {
+				items: newarray
+			});
 		default: return state;
 	}
 	return state;

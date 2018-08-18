@@ -11,7 +11,7 @@ function Lister(props){
 			</form>
 			<ul>
 			{ props.items.map((item,index) => {
-				return <li key={index}>{item}</li>
+				return <li onClick={()=>props.deleteItem(index)}key={index}>{item}</li>
 			})}
 			</ul>
 		</div>
@@ -34,6 +34,10 @@ function mapDispatchToProps(dispatch) {
 		submit: (event) => {
 			event.preventDefault();
 			const action = {type: 'ADD_ITEM'};
+			dispatch(action);
+		},
+		deleteItem: (index) => {
+			const action ={type: 'DELETE_ITEM', index: index};
 			dispatch(action);
 		}
 	}
