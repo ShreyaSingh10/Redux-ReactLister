@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Footer from './Footer';
 
 function Lister(props){
 	console.log('render',props);
@@ -14,6 +15,7 @@ function Lister(props){
 				return <li onClick={()=>props.deleteItem(index)}key={index}>{item}</li>
 			})}
 			</ul>
+			<Footer/>
 		</div>
 	);
 }
